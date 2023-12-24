@@ -1,0 +1,50 @@
+{
+    "name": "princejohnsantillan/id-base-converter",
+    "description": "Covert integer ID to string and vice versa",
+    "license": "MIT",    
+    "authors": [
+        {
+            "name": "princejohnsantillan",
+            "email": "mail@princejohnsantillan.net"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "IdBaseConverter\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "IdBaseConverter\\Test\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^8.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.13",
+        "phpunit/phpunit": "^10.5",
+        "phpstan/phpstan": "^1.10"
+    },
+    "scripts": {
+        "lint": [
+            "./vendor/bin/pint"
+        ],
+        "analyse": [
+            "./vendor/bin/phpstan analyse --memory-limit=-1"
+        ],
+        "test": [
+            "XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-html=html"
+        ],                
+        "review": [
+            "./vendor/bin/pint",
+            "./vendor/bin/phpstan analyse --memory-limit=-1",
+            "XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-html=html"
+        ],
+        "ci-review": [
+            "./vendor/bin/pint --test",
+            "./vendor/bin/phpstan analyse --memory-limit=-1",
+            "./vendor/bin/phpunit"
+        ]
+    }
+}
