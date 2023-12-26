@@ -1,12 +1,20 @@
 {
     "name": "princejohnsantillan/id-base-converter",
-    "description": "Covert integer ID to string and vice versa",
+    "description": "Convert integer ID to string and vice versa",
     "license": "MIT",    
     "authors": [
         {
-            "name": "princejohnsantillan",
+            "name": "Prince John Santillan",
             "email": "mail@princejohnsantillan.net"
         }
+    ],
+    "keywords": [
+        "base converter",
+        "id converter",
+        "integer to string",
+        "string to integer",
+        "encode",
+        "decode"
     ],
     "autoload": {
         "psr-4": {
@@ -23,8 +31,8 @@
     },
     "require-dev": {
         "laravel/pint": "^1.13",
-        "phpunit/phpunit": "^10.5",
-        "phpstan/phpstan": "^1.10"
+        "phpstan/phpstan": "^1.10",
+        "phpunit/phpunit": "^9.6"
     },
     "scripts": {
         "lint": [

@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace IdBaseConverter\Test;
 
 use IdBaseConverter\IdBase;
@@ -124,8 +122,8 @@ final class IdBaseTest extends TestCase
         }
     }
 
-    //Todo: 
+    //Todo:
     // - fix phpunit setup
     // - add test errors/exceptions
-    // - add github action lint, test, and changelog     
+    // - add github action lint, test, and changelog
 }
