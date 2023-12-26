@@ -32,7 +32,6 @@ final class IdBaseTest extends TestCase
 
         foreach ($this->idSet as $id) {
             $this->assertSame($converter->convert($converter->convert($id)), $id);
-
             $this->assertSame($converterWithOptions->convert($converterWithOptions->convert($id)), $id);
         }
     }
@@ -49,7 +48,6 @@ final class IdBaseTest extends TestCase
 
         foreach ($this->idSet as $id) {
             $this->assertSame($converter->convert($converter->convert($id)), $id);
-
             $this->assertSame($converterWithOptions->convert($converterWithOptions->convert($id)), $id);
         }
     }
@@ -66,7 +64,6 @@ final class IdBaseTest extends TestCase
 
         foreach ($this->idSet as $id) {
             $this->assertSame($converter->convert($converter->convert($id)), $id);
-
             $this->assertSame($converterWithOptions->convert($converterWithOptions->convert($id)), $id);
         }
     }
@@ -83,7 +80,6 @@ final class IdBaseTest extends TestCase
 
         foreach ($this->idSet as $id) {
             $this->assertSame($converter->convert($converter->convert($id)), $id);
-
             $this->assertSame($converterWithOptions->convert($converterWithOptions->convert($id)), $id);
         }
     }
@@ -100,7 +96,6 @@ final class IdBaseTest extends TestCase
 
         foreach ($this->idSet as $id) {
             $this->assertSame($converter->convert($converter->convert($id)), $id);
-
             $this->assertSame($converterWithOptions->convert($converterWithOptions->convert($id)), $id);
         }
     }
@@ -117,13 +112,7 @@ final class IdBaseTest extends TestCase
 
         foreach ($this->idSet as $id) {
             $this->assertSame($converter->convert($converter->convert($id)), $id);
-
             $this->assertSame($converterWithOptions->convert($converterWithOptions->convert($id)), $id);
         }
     }
-
-    //Todo:
-    // - fix phpunit setup
-    // - add test errors/exceptions
-    // - add github action lint, test, and changelog
 }

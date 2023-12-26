@@ -7,7 +7,7 @@ use IdBaseConverter\Exceptions\InvalidSymbolsException;
 use IdBaseConverter\Exceptions\UnidentifiedSymbolException;
 
 /**
- * ID Base Converter - Covert interger ID to string and vice versa.
+ * ID Base Converter - Covert interger ID into encoded string and vice versa.
  */
 class IdBase
 {
@@ -74,7 +74,7 @@ class IdBase
         $this->padding = $padding;
     }
 
-    final public function getBase(): int
+    public function getBase(): int
     {
         return $this->base;
     }

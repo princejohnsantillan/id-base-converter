@@ -1,5 +1,12 @@
 # ID Base Converter
-This package makes converting integer IDs into encoded strings and vice versa easy. You can use a preset of symbol set, or you can create your own. 
+This package makes converting integer IDs into encoded strings and vice versa easy. You can use a preset of symbol set, or you can use your own. 
+
+This can be useful if you want to add a little abstraction to your integer IDs by encoding it into strings that you can decode back to the original ID. 
+
+Let's say you have a url `https://example-dashboard.com/user/123` and you don't want to expose the exact database ID to the public. You can instead encode the ID and have the url become `https://example-dashboard.com/user/3F`.
+
+## Requirement
+PHP 8.0 or higher
 
 ## Installation
 ```bash
@@ -51,7 +58,7 @@ IdBase::asBase16uc()->toInteger('3F'); // 123
 IdBase::symbols("0a1b2c3d4e5f6g7h8i9j")->toInteger('3b'); // 123
 ```
 
-Alternatively, you can use the `convert` method to convert an integeger ID into an encoded string or vice versa:
+Alternatively, you can use the `convert` method to convert an integeger ID into an encoded string and/or vice versa:
 ```php
 IdBase::asAlphanumeric()->convert(12345); // 3d7
 

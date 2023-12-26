@@ -39,14 +39,14 @@
             "./vendor/bin/pint"
         ],
         "analyse": [
-            "./vendor/bin/phpstan analyse --memory-limit=-1"
+            "./vendor/bin/phpstan analyse"
         ],
         "test": [
             "XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-html=html"
         ],                
         "review": [
             "./vendor/bin/pint",
-            "./vendor/bin/phpstan analyse --memory-limit=-1",
+            "./vendor/bin/phpstan analyse",
             "XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-html=html"
         ],
         "ci-review": [
