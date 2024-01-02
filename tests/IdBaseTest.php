@@ -2,6 +2,9 @@
 
 namespace IdBaseConverter\Test;
 
+use Exception;
+use IdBaseConverter\Exceptions\InvalidSymbolsException;
+use IdBaseConverter\Exceptions\UnidentifiedSymbolException;
 use IdBaseConverter\IdBase;
 use PHPUnit\Framework\TestCase;
 
@@ -113,6 +116,36 @@ final class IdBaseTest extends TestCase
         foreach ($this->idSet as $id) {
             $this->assertSame($converter->convert($converter->convert($id)), $id);
             $this->assertSame($converterWithOptions->convert($converterWithOptions->convert($id)), $id);
+        }
+    }
+
+    public function testThrowExceptionWhenSymbolsAreNotUnique(): void
+    {
+        try {
+            new IdBase('aabbcc');
+        } catch (Exception $e) {
+            $this->assertInstanceOf(InvalidSymbolsException::class, $e);
+            $this->assertSame($e->getMessage(), 'Symbols must be unique');
+        }
+    }
+
+    public function testThrowExceptionWhenSymbolsIsNotMoreThanOne(): void
+    {
+        try {
+            new IdBase('a');
+        } catch (Exception $e) {
+            $this->assertInstanceOf(InvalidSymbolsException::class, $e);
+            $this->assertSame($e->getMessage(), 'More than 1 symbol is required');
+        }
+    }
+
+    public function testThrowExceptionWhenSymbolDoesNotExist(): void
+    {
+        try {
+            IdBase::asBase16()->convert('1A');
+        } catch (Exception $e) {
+            $this->assertInstanceOf(UnidentifiedSymbolException::class, $e);
+            $this->assertSame($e->getMessage(), 'Unidentified symbol: A');
         }
     }
 }
