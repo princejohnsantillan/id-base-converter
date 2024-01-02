@@ -1,7 +1,7 @@
 {
     "name": "princejohnsantillan/id-base-converter",
     "description": "Convert integer ID to string and vice versa",
-    "license": "MIT",    
+    "license": "MIT",
     "authors": [
         {
             "name": "Prince John Santillan",
@@ -43,14 +43,13 @@
         ],
         "test": [
             "XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-html=html"
-        ],                
+        ],
         "review": [
             "./vendor/bin/pint",
             "./vendor/bin/phpstan analyse",
             "XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-html=html"
         ],
         "ci-review": [
-            "./vendor/bin/pint --test",
             "./vendor/bin/phpstan analyse --memory-limit=-1",
             "./vendor/bin/phpunit"
         ]
