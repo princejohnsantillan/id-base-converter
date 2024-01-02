@@ -1,6 +1,6 @@
 {
     "name": "princejohnsantillan/id-base-converter",
-    "description": "Convert integer ID to string and vice versa",
+    "description": "Encode integer IDs using a preset or customized symbol set",
     "license": "MIT",
     "authors": [
         {
