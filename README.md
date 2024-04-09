@@ -2,7 +2,7 @@
 This package makes converting integer IDs into encoded strings and vice versa easy. You can use a preset symbol set, or you can define your own.
 
 
-This can be useful if you want to add a layer of abstraction to your integer IDs by encoding them into strings, which you can then decode back to the original ID.
+This can be useful if you want to add a layer of obfuscation to your integer IDs by encoding them into strings, which you can then decode back to the original ID.
 
 For example, if you have a URL `https://example-dashboard.com/user/123` and you don't want to expose the exact database ID to the public, you can encode the ID. The URL could then become `https://example-dashboard.com/user/3F`.
 
