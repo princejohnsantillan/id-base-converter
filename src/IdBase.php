@@ -7,7 +7,7 @@ use IdBaseConverter\Exceptions\InvalidSymbolsException;
 use IdBaseConverter\Exceptions\UnidentifiedSymbolException;
 
 /**
- * ID Base Converter - Covert interger ID into encoded string and vice versa.
+ * ID Base Converter - Covert intrger ID into encoded string and vice versa.
  */
 class IdBase
 {
@@ -26,7 +26,11 @@ class IdBase
 
     private int $base;
 
-    final public function __construct(
+    /**
+     * @throws InvalidSymbolsException
+     * @throws InvalidPaddingException
+     */
+    public function __construct(
         private string $symbols = self::ALPHANUMERIC,
         private ?int $length = null,
         private ?string $padding = null,
@@ -42,6 +46,9 @@ class IdBase
         $this->setPadding($padding);
     }
 
+    /**
+     * @throws InvalidSymbolsException
+     */
     private function analyseSymbols(): void
     {
         if ($this->base <= 1) {
@@ -53,6 +60,9 @@ class IdBase
         }
     }
 
+    /**
+     * @throws InvalidPaddingException
+     */
     private function setPadding(?string $padding): void
     {
         $firstSymbol = $this->symbols[0];
@@ -79,40 +89,70 @@ class IdBase
         return $this->base;
     }
 
-    /** @param  array{length?: int, padding?: string, prefix?: string, postfix?: string}  $options */
-    public static function asBase16(array $options = []): static
+    /**
+     * @param  array{length?: int, padding?: string, prefix?: string, postfix?: string}  $options
+     *
+     * @throws InvalidPaddingException
+     * @throws InvalidSymbolsException
+     */
+    public static function asBase16(array $options = []): IdBase
     {
-        return new static(self::BASE16, ...$options);
+        return new IdBase(self::BASE16, ...$options);
     }
 
-    /** @param  array{length?: int, padding?: string, prefix?: string, postfix?: string}  $options */
-    public static function asBase16uc(array $options = []): static
+    /**
+     * @param  array{length?: int, padding?: string, prefix?: string, postfix?: string}  $options
+     *
+     * @throws InvalidPaddingException
+     * @throws InvalidSymbolsException
+     */
+    public static function asBase16uc(array $options = []): IdBase
     {
-        return new static(self::BASE16UC, ...$options);
+        return new IdBase(self::BASE16UC, ...$options);
     }
 
-    /** @param  array{length?: int, padding?: string, prefix?: string, postfix?: string}  $options */
-    public static function asBase36(array $options = []): static
+    /**
+     * @param  array{length?: int, padding?: string, prefix?: string, postfix?: string}  $options
+     *
+     * @throws InvalidPaddingException
+     * @throws InvalidSymbolsException
+     */
+    public static function asBase36(array $options = []): IdBase
     {
-        return new static(self::BASE36, ...$options);
+        return new IdBase(self::BASE36, ...$options);
     }
 
-    /** @param  array{length?: int, padding?: string, prefix?: string, postfix?: string}  $options */
-    public static function asBase36uc(array $options = []): static
+    /**
+     * @param  array{length?: int, padding?: string, prefix?: string, postfix?: string}  $options
+     *
+     * @throws InvalidPaddingException
+     * @throws InvalidSymbolsException
+     */
+    public static function asBase36uc(array $options = []): IdBase
     {
-        return new static(self::BASE36UC, ...$options);
+        return new IdBase(self::BASE36UC, ...$options);
     }
 
-    /** @param  array{length?: int, padding?: string, prefix?: string, postfix?: string}  $options */
-    public static function asAlphanumeric(array $options = []): static
+    /**
+     * @param  array{length?: int, padding?: string, prefix?: string, postfix?: string}  $options
+     *
+     * @throws InvalidPaddingException
+     * @throws InvalidSymbolsException
+     */
+    public static function asAlphanumeric(array $options = []): IdBase
     {
-        return new static(self::ALPHANUMERIC, ...$options);
+        return new IdBase(self::ALPHANUMERIC, ...$options);
     }
 
-    /** @param  array{length?: int, padding?: string, prefix?: string, postfix?: string}  $options */
-    public static function symbols(string $symbols, array $options = []): static
+    /**
+     * @param  array{length?: int, padding?: string, prefix?: string, postfix?: string}  $options
+     *
+     * @throws InvalidPaddingException
+     * @throws InvalidSymbolsException
+     */
+    public static function symbols(string $symbols, array $options = []): IdBase
     {
-        return new static($symbols, ...$options);
+        return new IdBase($symbols, ...$options);
     }
 
     public function toString(int $value): string
@@ -139,9 +179,12 @@ class IdBase
             );
         }
 
-        return "{$this->prefix}{$string}{$this->postfix}";
+        return $this->prefix.$string.$this->postfix;
     }
 
+    /**
+     * @throws UnidentifiedSymbolException
+     */
     public function toInteger(string $value): int
     {
         $value = $this->sanitize($value);
@@ -193,6 +236,9 @@ class IdBase
         return $value;
     }
 
+    /**
+     * @throws UnidentifiedSymbolException
+     */
     public function convert(string|int $value): string|int
     {
         return is_string($value)

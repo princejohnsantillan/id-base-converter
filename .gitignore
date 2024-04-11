@@ -2,3 +2,5 @@
 /.phpunit.cache
 composer.lock
 phpunit.xml
+.idea
+.html
