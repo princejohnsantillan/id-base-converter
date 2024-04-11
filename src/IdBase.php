@@ -90,8 +90,8 @@ class IdBase
     }
 
     /**
-     * @param array{length?: int, padding?: string, prefix?: string, postfix?: string} $options
-     * @return IdBase
+     * @param  array{length?: int, padding?: string, prefix?: string, postfix?: string}  $options
+     *
      * @throws InvalidPaddingException
      * @throws InvalidSymbolsException
      */
@@ -101,8 +101,8 @@ class IdBase
     }
 
     /**
-     * @param array{length?: int, padding?: string, prefix?: string, postfix?: string} $options
-     * @return IdBase
+     * @param  array{length?: int, padding?: string, prefix?: string, postfix?: string}  $options
+     *
      * @throws InvalidPaddingException
      * @throws InvalidSymbolsException
      */
@@ -112,8 +112,8 @@ class IdBase
     }
 
     /**
-     * @param array{length?: int, padding?: string, prefix?: string, postfix?: string} $options
-     * @return IdBase
+     * @param  array{length?: int, padding?: string, prefix?: string, postfix?: string}  $options
+     *
      * @throws InvalidPaddingException
      * @throws InvalidSymbolsException
      */
@@ -123,8 +123,8 @@ class IdBase
     }
 
     /**
-     * @param array{length?: int, padding?: string, prefix?: string, postfix?: string} $options
-     * @return IdBase
+     * @param  array{length?: int, padding?: string, prefix?: string, postfix?: string}  $options
+     *
      * @throws InvalidPaddingException
      * @throws InvalidSymbolsException
      */
@@ -134,8 +134,8 @@ class IdBase
     }
 
     /**
-     * @param array{length?: int, padding?: string, prefix?: string, postfix?: string} $options
-     * @return IdBase
+     * @param  array{length?: int, padding?: string, prefix?: string, postfix?: string}  $options
+     *
      * @throws InvalidPaddingException
      * @throws InvalidSymbolsException
      */
@@ -145,9 +145,8 @@ class IdBase
     }
 
     /**
-     * @param string $symbols
-     * @param array{length?: int, padding?: string, prefix?: string, postfix?: string} $options
-     * @return IdBase
+     * @param  array{length?: int, padding?: string, prefix?: string, postfix?: string}  $options
+     *
      * @throws InvalidPaddingException
      * @throws InvalidSymbolsException
      */
