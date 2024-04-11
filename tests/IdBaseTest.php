@@ -87,10 +87,10 @@ final class IdBaseTest extends TestCase
         }
     }
 
-    public function tesAlphanumericConversion(): void
+    public function testAlphanumericConversion(): void
     {
-        $converter = IdBase::asBase16uc();
-        $converterWithOptions = IdBase::asBase16uc([
+        $converter = IdBase::asAlphanumeric();
+        $converterWithOptions = IdBase::asAlphanumeric([
             'length' => 20,
             'padding' => '0',
             'prefix' => 'A1-',
@@ -103,7 +103,7 @@ final class IdBaseTest extends TestCase
         }
     }
 
-    public function tesUserDefinedSymbolsConversion(): void
+    public function testUserDefinedSymbolsConversion(): void
     {
         $converter = IdBase::symbols('0aA1bB2cC3dD4eE5fF6gG7hH8iI9jJ');
         $converterWithOptions = IdBase::symbols('0aA1bB2cC3dD4eE5fF6gG7hH8iI9jJ', [
