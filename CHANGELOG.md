@@ -1,5 +1,14 @@
 # Release Notes
 
+## v1.0.5 - 2024-04-11
+
+### What's Changed
+
+* Update README.md by @princejohnsantillan in https://github.com/princejohnsantillan/id-base-converter/pull/3
+* fix tests and update dockblocks by @princejohnsantillan in https://github.com/princejohnsantillan/id-base-converter/pull/4
+
+**Full Changelog**: https://github.com/princejohnsantillan/id-base-converter/compare/v1.0.3...v1.0.5
+
 ## v1.0.4 - 2024-01-02
 
 - Fix change log workflow
